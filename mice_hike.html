@@ -1,0 +1,258 @@
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>MICE Portal Wandertour</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style type='text/css'>
+      body {
+        font: 15px/22px lato,sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('images/background.jpeg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+
+      .Header {
+        background-color: #ffffff;
+        opacity: 0.9;
+        padding: 10px;
+        color: #7DAF23;
+        text-align: center;
+      }
+
+      .Header-title {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 20px;
+        padding-left: 15px;
+        padding-top: 10px;
+        font-weight: bold;
+      }
+
+      .Header img {
+        width: 130px;
+        height: auto;
+        vertical-align: middle;
+      }
+
+      .Body {
+        width: 1120px;
+        margin: 0 auto;
+      }
+
+      .Map {
+        position: relative;
+        background-image: url('images/map.png');
+        width: 740px;
+        height: 784px;
+        margin: 0 auto;
+      }
+
+      .Location {
+        position: absolute;
+      }
+
+      .Location:hover {
+        cursor: pointer;
+      }
+
+      .Location-name {
+        display: none;
+        padding: 8px 10px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        position: relative;
+        right: -10px;
+        background-color: #ffffff;
+        color: #7DAF23;
+        font-weight: bold;
+      }
+
+      .Location-marker {
+        vertical-align: middle;
+        padding: 8px 5px;
+      }
+
+      .Location.is-selected .Location-name,
+      .Location:hover .Location-name {
+        display: inline;
+      }
+
+      .Location.is-selected .Location-marker,
+      .Location:hover .Location-marker {
+        background-color: #ffffff;
+        border-radius: 50%;
+      }
+
+      .Location.is-1 { top: 155px; right: 320px; }
+      .Location.is-2 { top: 195px; right: 360px; }
+
+      .Phone {
+        display: none;
+        position: absolute;
+        right: -170px;
+        top: 0;
+        background-image: url('images/phone.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 401px;
+        height: 761px;
+      }
+
+      .Phone-close {
+        position: absolute;
+        right: 0;
+        top: 25px;
+        transform: rotate(45deg);
+        background-image: url('images/close.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 50px;
+        height: 50px;
+      }
+
+      .Chat {
+        position: relative;
+        top: 202px;
+        width: 279px;
+        left: 62px;
+        height: 420px;
+        overflow: scroll;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+
+      .ChatEntry {
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        margin-bottom: 15px;
+      }
+
+      .ChatEntry-user {
+        color: #7DAF23;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .ChatEntry-content img {
+        max-width: 230px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Header">
+      <a href="http://www.miceportal.com/"><img src="images/logo.png"></a>
+      <div class="Header-title">Wandertour</div>
+    </div>
+    <div class="Body">
+      <div class="Map">
+        <!-- Day 1 Lüdbeck -->
+        <div class="Map-entry">
+          <div class="Location is-1">
+            <div class="Location-name">Lüdbeck</div>
+            <img src="images/marker.png" width="30" class="Location-marker">
+          </div>
+          <div class="Phone">
+            <a href="#" class="Phone-close"></a>
+            <div class="Chat">
+              <div class="ChatEntry">
+                <div class="ChatEntry-user">Josephine von Brühl</div>
+                <div class="ChatEntry-content">Das Foto sieht auf jeden Fall gut aus 🐸</div>
+              </div>
+              <div class="ChatEntry">
+                <div class="ChatEntry-user">+49 175 2815298</div>
+                <div class="ChatEntry-content">Heute ist das Wetter schön und an morgen denken wir nicht. 😂</div>
+              </div>
+              <div class="ChatEntry">
+                <div class="ChatEntry-user">Josephine von Brühl</div>
+                <div class="ChatEntry-content">Toi toi toi und vergesst nicht ein Foto zu machen, wir denken an euch!</div>
+              </div>
+              <div class="ChatEntry">
+                <div class="ChatEntry-user">Anja Engel</div>
+                <div class="ChatEntry-content">Danke! Haben uns gerade gestärkt und gleich gehts los. Fotos folgen 👍</div>
+              </div>
+              <div class="ChatEntry">
+                <div class="ChatEntry-user">Anja Engel</div>
+                <div class="ChatEntry-content">
+                  <img src="images/whatsapp/2017-05-04-PHOTO-00000067.jpg">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Day 1 -->
+
+        <!-- Day 2 Lauenburg -->
+        <div class="Map-entry">
+          <div class="Location is-2">
+            <div class="Location-name">Lauenburg</div>
+            <img src="images/marker.png" width="30" class="Location-marker">
+          </div>
+          <div class="Phone">
+            <a href="#" class="Phone-close"></a>
+            <div class="Chat">
+              <div class="ChatEntry">
+                <div class="ChatEntry-user">Anja Engel</div>
+                <div class="ChatEntry-content"><img src="images/whatsapp/2017-05-05-PHOTO-00000119.jpg"></div>
+              </div>
+              <div class="ChatEntry">
+                <div class="ChatEntry-user">+49 175 2815298</div>
+                <div class="ChatEntry-content">Machst gut ihr Zwei. Viel Spass noch.</div>
+              </div>
+              <div class="ChatEntry">
+                <div class="ChatEntry-user">Anja Engel</div>
+                <div class="ChatEntry-content"><img src="images/whatsapp/2017-05-05-PHOTO-00000121.jpg"></div>
+              </div>
+              <div class="ChatEntry">
+                <div class="ChatEntry-user">Anja Engel</div>
+                <div class="ChatEntry-content">Wir sind jetzt kurz vorm Einstieg in den Jakobsweg und trocknen vorher noch etwas beim Kaffee ☕😱</div>
+              </div>
+              <div class="ChatEntry">
+                <div class="ChatEntry-user">Christoph Barradas</div>
+                <div class="ChatEntry-content">good job 👍</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <script>
+      $( document ).ready(function() {
+
+        function clear_selections() {
+          $('.Phone').each(function() {
+            $(this).hide();
+          })
+          $('.Location').each(function() {
+            $(this).removeClass('is-selected');
+          });
+        }
+
+        $('.Location').click(function() {
+          if ($(this).hasClass('is-selected')) {
+            clear_selections();
+          } else {
+            clear_selections();
+            $(this).addClass('is-selected');
+            $(this).next('.Phone').show();
+          }
+        });
+
+        $('.Phone-close').click(function() {
+          clear_selections()
+          $(this).closest('.Map-entry').find('.Location').removeClass('is-selected');
+        });
+      });
+    </script>
+  </body>
+</html>
